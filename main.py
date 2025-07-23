@@ -11,6 +11,9 @@ from langchain_ollama import OllamaEmbeddings
 from langchain_ollama.llms import OllamaLLM
 
 app = FastAPI()
+@app.get("/")
+def root():
+    return {"message": "FastAPI RAG bot is running! 🎉 Use /upload, /build-vectors, /ask"}
 
 # ---- SETUP ----
 embeddings_model = OllamaEmbeddings(model="deepseek-r1:1.5b")
